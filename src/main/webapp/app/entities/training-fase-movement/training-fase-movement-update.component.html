@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-training-fase-movement-heading">Create or edit a Training Fase Movement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!trainingFaseMovement.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="trainingFaseMovement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <div class="d-flex">
+                        <input id="field_name" type="datetime-local" class="form-control" name="name" [(ngModel)]="name" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <select class="form-control" id="field_name" name="name" [(ngModel)]="trainingFaseMovement.name" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trainingFaseOption.id === trainingFaseMovement.name?.id ? trainingFaseMovement.name : trainingFaseOption" *ngFor="let trainingFaseOption of trainingfases; trackBy: trackTrainingFaseById">{{trainingFaseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <select class="form-control" id="field_name" name="name" [(ngModel)]="trainingFaseMovement.name" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="movementOption.id === trainingFaseMovement.name?.id ? trainingFaseMovement.name : movementOption" *ngFor="let movementOption of movements; trackBy: trackMovementById">{{movementOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

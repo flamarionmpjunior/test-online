@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trainingFaseMovement">
+            <h2><span>Training Fase Movement</span> {{trainingFaseMovement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{trainingFaseMovement.name}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <div *ngIf="trainingFaseMovement.name">
+                        <a [routerLink]="['/training-fase', trainingFaseMovement.name?.id, 'view']">{{trainingFaseMovement.name?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <div *ngIf="trainingFaseMovement.name">
+                        <a [routerLink]="['/movement', trainingFaseMovement.name?.id, 'view']">{{trainingFaseMovement.name?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/training-fase-movement', trainingFaseMovement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

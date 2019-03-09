@@ -1,0 +1,58 @@
+<div>
+    <h2 id="page-heading">
+        <span>Fase Categories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fase-category" [routerLink]="['/fase-category/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Fase Category
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="faseCategories">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Description</span></th>
+            <th><span>Game Score</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let faseCategory of faseCategories ;trackBy: trackId">
+                <td><a [routerLink]="['/fase-category', faseCategory.id, 'view' ]">{{faseCategory.id}}</a></td>
+                <td>{{faseCategory.name}}</td>
+                <td>{{faseCategory.description}}</td>
+                <td>{{faseCategory.gameScore}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fase-category', faseCategory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fase-category', faseCategory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'fase-category', { outlets: { popup: faseCategory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

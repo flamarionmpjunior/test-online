@@ -1,0 +1,43 @@
+{
+    "name": "Movement",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "abreviation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "webLink",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "movementCategory",
+            "otherEntityRelationshipName": "movement",
+            "relationshipName": "name",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190309122648",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "movement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

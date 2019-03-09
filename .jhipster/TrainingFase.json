@@ -1,0 +1,38 @@
+{
+    "name": "TrainingFase",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "training",
+            "otherEntityRelationshipName": "trainingFase",
+            "relationshipName": "name",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "fase",
+            "otherEntityRelationshipName": "trainingFase",
+            "relationshipName": "name",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190309122652",
+    "entityTableName": "training_fase",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

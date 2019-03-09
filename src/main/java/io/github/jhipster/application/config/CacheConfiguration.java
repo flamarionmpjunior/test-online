@@ -38,6 +38,14 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Sport.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.MovementCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Movement.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Fase.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.FaseCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Training.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TrainingFase.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TrainingFaseMovement.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
