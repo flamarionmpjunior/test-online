@@ -1,0 +1,118 @@
+entity Sport {
+	name String required,
+    description String
+}
+
+entity MovementCategory {
+	name String required,
+    description String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Movement {
+	name String required,
+	abreviation String,
+	description String,
+	webLink String
+}
+
+entity Fase {
+	name String required,
+    description String,
+   
+}
+
+entity FaseCategory {
+	name String required,
+	description String,
+    gameScore Boolean
+}
+
+/**
+ * The Training entity.
+ */
+entity Training {
+	name String,
+	description String
+}
+
+entity TrainingFase {
+	name String,
+	description String
+}
+
+entity TrainingFaseMovement {
+	name Instant
+}
+
+/** 
+* enum Language {
+*    ENGLISH, PORTUGUESE, SPANISH
+*}
+*/
+
+relationship ManyToOne {
+	MovementCategory{name} to Sport,
+    Movement{name} to MovementCategory,
+    Fase{name} to FaseCategory,
+    //Training{name} to TrainingFase,
+    TrainingFase{name} to Training,
+    //Fase{name} to TrainingFase,
+    TrainingFase{name} to Fase,
+    TrainingFaseMovement{name} to TrainingFase
+    TrainingFaseMovement{name} to Movement
+    
+}
+
+/* relationship OneToOne {
+*  	Location{country} to Country
+*}
+*/
+
+/*relationship OneToOne {
+*	Department{location} to Location
+*}
+*/
+
+/*relationship ManyToMany {
+*	Job{task(title)} to Task{job}
+*}
+*/
+
+// defining multiple OneToMany relationships with comments
+//relationship OneToMany {
+//	Employee{job} to Job,
+	/**
+	* A relationship
+	*/
+//	Department{employee} to
+	/**
+	* Another side of the same relationship
+	*/
+//	Employee
+//}
+
+//relationship ManyToOne {
+//	Employee{manager} to Employee
+//}
+
+// defining multiple oneToOne relationships
+//relationship OneToOne {
+//	JobHistory{job} to Job,
+//	JobHistory{department} to Department,
+//	JobHistory{employee} to Employee
+//}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
